@@ -5,6 +5,7 @@
 
 body{
     background:rgb(17, 39, 51);
+    overflow: hidden;
 }
 
 #buttons{
@@ -183,3 +184,106 @@ header ul li a.active{
     top:15px;
     border-radius: 0.8rem;
 }
+
+.write-comment{
+    width: 650px;
+    height:400px;
+    position: absolute;
+    left:50%;
+    background: #12131d ;
+    top:-150%;
+    opacity: 0;
+    transform:translate(-50%, -50%) scale(1.25);
+    border-radius: 1rem;
+    transition: top 0ms ease-in-out 200ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+}
+
+.write-comment.active{
+    top:50%;
+    opacity: 1;
+    transform:translate(-50%,-50%) scale(1);
+    transition: top 0ms ease-in-out 0ms,
+                opacity 200ms ease-in-out 0ms,
+                transform 20ms ease-in-out 0ms;
+}
+
+#comment-inp{
+    position:absolute;
+    width: 600px;
+    height:290px;
+    left:2%;
+    top:7%;
+    padding:8px;
+    border-radius: 1rem;
+    resize:none;
+    font-size: medium;
+    background-color:#12131d;
+    color:white;
+}
+
+#close-btn{
+    position: absolute;
+    right:10px;
+    top:7px;
+    width:20px;
+    font-weight: bold;
+    color: white;
+    border-radius: 50%;
+    background-color: black;
+    border:0px;
+}
+
+#save-comment{
+    position: absolute;
+    right:20px;
+    bottom:15px;
+    width:70px;
+    height:40px;
+    padding:10px;
+    border-radius:1.5rem;
+    background-color: rgb(17, 39, 51);
+    color:white;
+    font-weight: bold;
+    border: 1px solid white;
+}
+
+#save-comment:hover{
+    background: linear-gradient(to right, #06599b 10%, #01ef96 50%, #06599b 90%);
+    background-size: 200% auto;
+    background-clip:padding-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation:animate 2s linear infinite;
+}
+
+.rating{
+    display : flex;
+    position: absolute;
+    top: 85%;
+    left: 2%;
+  }
+  
+  .rating input{
+    position : absolute;
+    left     : -100vw;
+  }
+  
+  .rating label{
+    width      : 48px;
+    height     : 48px;
+    padding    : 48px 0 0;
+    overflow   : hidden;
+    background : url('../img/website_component/stars.svg') no-repeat top left;
+}
+  
+  .rating:not(:hover) input:indeterminate + label,
+  .rating:not(:hover) input:checked ~ input + label,
+  .rating input:hover ~ input + label{
+    background-position : -48px 0;
+  }
+  
+  .rating:not(:hover) input:focus-visible + label{
+    background-position : -96px 0;
+  }
